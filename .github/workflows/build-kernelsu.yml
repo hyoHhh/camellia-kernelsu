@@ -70,13 +70,13 @@ jobs:
         # 修复dt_idle_states.h包含
         find . -type f -name "*.c" -exec grep -l "dt_idle_states.h" {} \; | while read file; do
           echo "修复: $file"
-          sed -i 's/#include <dt_idle_states\.h>/#include "dt_idle_states.h"|g' "$file"
+          sed -i 's|#include <dt_idle_states\.h>|#include "dt_idle_states.h"|g' "$file"
         done
 
         # 修复clk-mux.h包含
         find drivers/clk -type f -name "*.c" -exec grep -l "clk-mux.h" {} \; | while read file; do
           echo "修复: $file"
-          sed -i 's/#include <clk-mux\.h>/#include "clk-mux.h"|g' "$file"
+          sed -i 's|#include <clk-mux\.h>|#include "clk-mux.h"|g' "$file"
         done
 
         # 修复其他MediaTek特定头文件
@@ -86,7 +86,7 @@ jobs:
             dir=$(dirname "$file")
             if [ -f "$dir/$header" ]; then
               echo "修复本地头文件: $file -> $header"
-              sed -i "s/#include <$header>/#include \"$header\"|g" "$file"
+              sed -i "s|#include <$header>|#include \"$header\"|g" "$file"
             fi
           done
         done

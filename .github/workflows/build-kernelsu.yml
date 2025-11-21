@@ -40,7 +40,8 @@ jobs:
         # 验证版本
         gcc --version
         aarch64-linux-gnu-gcc-11 --version
-
+        sudo ln -sf /usr/bin/aarch64-linux-gnu-gcc-11 /usr/bin/aarch64-linux-gnu-gcc
+        sudo ln -sf /usr/bin/aarch64-linux-gnu-g++-11 /usr/bin/aarch64-linux-gnu-g++
     - name: 下载源码
       run: |
         cd $HOME

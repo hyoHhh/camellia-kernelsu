@@ -124,7 +124,7 @@ jobs:
         export ARCH=arm64
         export SUBARCH=arm64
         export CROSS_COMPILE=aarch64-linux-gnu-
-        export CC=aarch64-linux-gnu-gcc-8
+        export CC=aarch64-linux-gnu-gcc-11
 
         # 生成默认配置
         make camellia_defconfig
@@ -153,9 +153,9 @@ jobs:
         export ARCH=arm64
         export SUBARCH=arm64
         export CROSS_COMPILE=aarch64-linux-gnu-
-        export CC=aarch64-linux-gnu-gcc-8
-        export HOSTCC=gcc-8
-        export HOSTCXX=g++-8
+        export CC=aarch64-linux-gnu-gcc-11
+        export HOSTCC=gcc-11
+        export HOSTCXX=g++-11
 
         # 添加编译参数以忽略警告
         export KCFLAGS="-w"
